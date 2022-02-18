@@ -1,2 +1,2 @@
-# JavaScript-PasswordGenerator
-Password generator built in JavaScript
+# taskinator
+A neato kanban board!
