@@ -12,6 +12,71 @@ var charray = [
 ];
 console.log(charray)
 
+function pwCreation() {
+  var pwCompile = pwBuilder();
+  var pwDom = document.querySelector("#password");
+  pwDom.value = pwCompile;
+
+    function pwBuilder() {
+      var usrSelection = [];
+
+      pwStructure(charray, usrSelection, finalResult);
+      var finalResult = "";
+      if(usrSelection.length !== 0) {
+        var finalResult = retrievePwLength();
+        for(var i = 0; i < finalResult; i++){
+          finalResult += passwordType[Math.floor(Math.random() * usrSelection.length)];
+        }
+      }
+      return finalResult
+    }
+}
+
+
+//user prompts for password parameters
+function pwStructure( userPrompt, allInfo){
+  //window prompts output to user
+  //prompt for lowercase characters
+  var lwrCase = window.confirm("Would you like LOWERCASE characters? Okay for YES, Cancel for NO.");
+  //prompt for uppercase characters
+  var upCase = window.confirm("Would you like UPPERCASE characters? Okay for YES, Cancel for NO.");
+  //prompt for special characters
+  var spcCase = window.confirm("Would you like SPECIAL characters? Okay for YES, Cancel for NO.");
+  //prompt for numbers
+  var nmCase = window.confirm("Would you like NUMERIC characters? Okay for YES, Cancel for NO.");
+  //final if just in case the user is cheeky and selects NO to all prompts
+  // if (userPrompt.length === false) {
+  //   window.alert("ERROR:You must select YES on at least one prompt");
+  //   pwStructure( userPrompt, allInfo);
+  // };
+  //console.log(lwrCase)
+  //if user wants lowercase add  to array
+  if (lwrCase === true){
+    userPrompt.push(...allInfo[0].slice(0))      
+  };
+  // console.log(lwrCase)
+  
+  //console.log(upCase)
+  //if user wants uppercase add to array
+  if (upCase === true){
+    userPrompt.push(...allInfo[1].slice(0))
+  };
+  
+  //console.log(spcCase)
+  //if user wants special add to array
+  if (spcCase === true) {
+    userPrompt.push(...allinfo[2].slice(0))
+  };
+  
+  //console.log(nmCase)
+  //if user wants number add to array
+  if (nmCase === true) {
+    userPrompt.push(...allinfo[3].slice(0))
+  };
+  
+};
+console.log(pwStructure());
+
 //debugger
 //prompt for desired password length
 function retrievePwLength() {
@@ -28,51 +93,7 @@ function retrievePwLength() {
     return;
   }
 }
-
-//user prompts for password parameters
-function pwStructure( userPrompt, allInfo){
-  //window prompts output to user
-  //prompt for lowercase characters
-  var lwrCase = window.confirm("Would you like LOWERCASE characters? Okay for YES, Cancel for NO.");
-  //prompt for uppercase characters
-  var upCase = window.confirm("Would you like UPPERCASE characters? Okay for YES, Cancel for NO.");
-  //prompt for special characters
-  var spcCase = window.confirm("Would you like SPECIAL characters? Okay for YES, Cancel for NO.");
-  //prompt for numbers
-  var nmCase = window.confirm("Would you like NUMERIC characters? Okay for YES, Cancel for NO.");
-  //final if just in case the user is cheeky and selects NO to all prompts
-  if (userPrompt.length === 0) {
-    window.alert("ERROR:You must select YES on at least one prompt");
-    pwStructure( userPrompt, allInfo);
-  };
-    //console.log(lwrCase)
-  //if user wants lowercase add  to array
-  if (lwrCase === true){
-    userPrompt.push(...allInfo[0].slice(0))      
-  };
-  console.log(lwrCase)
   
-    //console.log(upCase)
-  //if user wants uppercase add to array
-  if (upCase === true){
-    userPrompt.push(...allInfo[1].slice(0))
-  };
-  
-    //console.log(spcCase)
-  //if user wants special add to array
-  if (spcCase === true) {
-    userPrompt.push(...allinfo[2].slice(0))
-  };
-  
-    //console.log(nmCase)
-  //if user wants number add to array
-  if (nmCase === true) {
-    userPrompt.push(...allinfo[3].slice(0))
-  };
-  
-};
-console.log(pwStructure());
-
 
 
 
