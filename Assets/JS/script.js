@@ -1,16 +1,13 @@
 // Assignment code below
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-
 // character array
-var charray = [
+const charray = [
   ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
   ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
   ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
   [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
 ];
-//console.log(charray)
-
 function pwCreation() {
   var pwBuild = pwBuilder();
   var pwDom = document.querySelector("#password");
@@ -29,9 +26,10 @@ function pwCreation() {
       }
       return newPw;
     }
-}
+};
+
 //user prompts for password parameters
-function pwStructure(userPrompt, allInfo, newPwPrompt){
+function pwStructure(userPrompt, allInfo, pwPrompt){
   //window prompts output to user
   //prompt for lowercase characters
   var lwrCase = window.confirm("Would you like LOWERCASE characters? Okay for YES, Cancel for NO.");
@@ -42,40 +40,29 @@ function pwStructure(userPrompt, allInfo, newPwPrompt){
   //prompt for numbers
   var nmCase = window.confirm("Would you like NUMERIC characters? Okay for YES, Cancel for NO.");  
   
-  debugger
+  
   //if user wants lowercase add  to array
   if (lwrCase === true){
-    newPwPrompt = userPrompt.push(...allInfo[0].slice(0));
-  }
-  
-  
-  
+    pwPrompt = allInfo.push(...userPrompt[0].slice(0))
+  } 
   //if user wants uppercase add to array
   if (upCase === true){
-    newPwPrompt = userPrompt.push(...allInfo[1].slice(0));
-  }
-  
-  
+    pwPrompt = allInfo.push(...userPrompt[1].slice(0))
+  }  
   //if user wants special add to array
   if (spcCase === true) {
-    newPwPrompt = userPrompt.push(...allInfo[2].slice(0));
-  }
-  
-  
+    pwPrompt = allInfo.push(...userPrompt[2].slice(0))
+  } 
   //if user wants number add to array
   if (nmCase === true) {
-    newPwPrompt = userPrompt.push(...allInfo[3].slice(0));
-  }
-  
+    pwPrompt = allInfo.push(...userPrompt[3].slice(0))
+  } 
   //final if just in case the user is cheeky and selects NO to all prompts
   if (userPrompt.length === 0) {
     window.alert("<read in germanic accent>ACHTUNG:YOU MUST SELECT YES ON AT LEAST ONE PROMPT");
-    pwStructure(userPrompt, allInfo, newPwPrompt);
+    pwStructure(userPrompt, allInfo, pwPrompt);
   }
-}
-
-
-
+};
 //prompt for desired password length
 function retrievePwLength() {
   pwLength = prompt("How long would you like your password to be?", "Min 8 char, Max 128 char.");
