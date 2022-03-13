@@ -12,3 +12,7 @@ Fort Knox is a password generator built in JavaScript and allows for passwords u
 ## Notes
 
 This was an extreme journey for me. I really thought I would not get through this. I just want whoever reads this to know this took at least 10 years off of my life. I hope you enjoy it. :]
+
+## Picture of the application
+
+![](./Assets/Images/PW-Screencap.png)
