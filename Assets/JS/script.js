@@ -43,19 +43,19 @@ function pwStructure(userPrompt, allInfo, pwPrompt) {
 
     //if user wants lowercase add  to array
     if (lwrCase === true) {
-        pwPrompt = allInfo.push(...userPrompt[0].slice(0))
+        pwPrompt = allInfo.push(...userPrompt[1].slice(0))
     }
     //if user wants uppercase add to array
     if (upCase === true) {
-        pwPrompt = allInfo.push(...userPrompt[1].slice(0))
+        pwPrompt = allInfo.push(...userPrompt[0].slice(0))
     }
     //if user wants special add to array
     if (spcCase === true) {
-        pwPrompt = allInfo.push(...userPrompt[2].slice(0))
+        pwPrompt = allInfo.push(...userPrompt[3].slice(0))
     }
     //if user wants number add to array
     if (nmCase === true) {
-        pwPrompt = allInfo.push(...userPrompt[3].slice(0))
+        pwPrompt = allInfo.push(...userPrompt[2].slice(0))
     }
     //final if just in case the user is cheeky and selects NO to all prompts
     if (userPrompt.length === 0) {
